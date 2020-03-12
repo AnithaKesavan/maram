@@ -1,7 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 declare var $: any;
-import * as Modernizr from 'modernizr';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +7,7 @@ import * as Modernizr from 'modernizr';
 })
 export class AppComponent implements OnInit{
   title = 'app';
+
   ngOnInit(): void {
 
   }

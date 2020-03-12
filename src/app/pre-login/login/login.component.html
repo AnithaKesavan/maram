@@ -1,0 +1,62 @@
+<ngx-spinner type="ball-clip-rotate-multiple"></ngx-spinner>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
+  <div fxFlex="100%">
+    <div class="login-card card">
+      <div class="card-header card-header-green card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">contacts</i>
+        </div>
+        <div class="card-title" fxLayout="row">
+          <h4> LOGIN </h4>
+          <span>
+            <mat-icon class="regcss" (click)="close()">close</mat-icon>
+          </span>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <form [formGroup]="LoginForm" autocomplete="off">
+          <div class="p-1">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Email address</mat-label>
+              <input matInput formControlName="email" placeholder="Enter your regsitered e-Mail Id"
+                [ngClass]="{'form-error':LoginForm.controls.email.invalid && (submitted || LoginForm.controls.email.touched)}">
+              <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+              <mat-error
+                *ngIf="LoginForm.controls['email'].errors?.required && (submitted || LoginForm.controls['email'].touched)">
+                This field is Required</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="p-1">
+            <mat-form-field style="width: 100%;">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
+                (keydown.enter)="validateAndLogin()" placeholder="Enter Your Password"
+                [ngClass]="{'form-error':LoginForm.controls.password.invalid && (submitted || LoginForm.controls.password.touched)}">
+
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+              <mat-error
+                *ngIf="LoginForm.controls['password'].errors?.required && (submitted || LoginForm.controls['password'].touched)">
+                This field is Required</mat-error>
+            </mat-form-field>
+          </div>
+
+          <button class="btn btn-brand submit mt-2" (click)="validateAndLogin();">
+            Login
+          </button>
+        </form>
+
+        <p class="text-center mt-3">
+          <span>Don't have an account?</span>
+          <br>
+          <a class="regcss" (click)="createaccount()"> Create a new account </a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>

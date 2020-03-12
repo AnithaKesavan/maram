@@ -17,6 +17,9 @@
           <div class="social-icons pull-right">
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
+           
+            <a (click)="openLogin()" class="logincss" *ngIf="!loginHide">Login</a> 
+            <a (click)="logout()" class="logincss" *ngIf="loginHide">Logout</a> 
             <!--<a href="#"><i class="fa fa-instagram"></i></a>
             <a href="#"><i class="fa fa-youtube"></i></a>
             <a href="#"><i class="fa fa-skype"></i></a>-->

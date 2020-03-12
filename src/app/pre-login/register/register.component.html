@@ -1,0 +1,53 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap>
+  <div fxFlex="100%">
+    <div class="login-card card">
+      <div class="card-header card-header-green card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">mail_outline</i>
+        </div>
+        <div class="card-title" fxLayout="row">
+          <h4> REGISTER </h4>
+          <span>
+            <mat-icon class="closecss" (click)="close()">close</mat-icon>
+          </span>
+        </div> 
+      </div>
+
+      <div class="pt-3">
+        <form [formGroup]="userCreateForm" autocomplete="off" *ngIf="!registrationSuccess" class="p-2">
+          <div class="form-group">
+            <label class="leftalign">First Name</label>
+            <input type="text" class="form-control" id="validationDefault00" placeholder="Enter your first name"
+              formControlName="firstname" required>
+          </div>
+          <div class="form-group">
+            <label class="leftalign">Last Name</label>
+            <input type="text" class="form-control" id="validationDefault01" placeholder="Enter your last name"
+              formControlName="lastname" required>
+          </div>
+          <div class="form-group">
+            <label class="leftalign">Email Address</label>
+            <input type="email" class="form-control" id="validationDefault02" placeholder="Enter your email"
+              formControlName="email" required>
+          </div>
+          <div class="form-group">
+            <label class="mb-2 leftalign">Password</label>
+            <input type="password" class="form-control" id="password1" placeholder="Enter your password"
+              [type]="passwordHide ? 'password' : 'text'" formControlName="password" required>
+          </div>
+          <div class="form-group paddingbottom">
+            <label class="leftalign">Confirm Password</label>
+            <input type="password" class="form-control" id="password2" placeholder="Confirm password"
+              [type]="confirmPasswordHide ? 'password' : 'text'" formControlName="confirmPassword" required>
+          </div>
+
+          <button (click)="validateAndCreate();" class="btn btn-brand submit">Register</button>
+          <p class="text-center mt-3">
+            <a href="#">By clicking Register, I agree to your terms</a>
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
