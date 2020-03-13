@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from 'src/app/pre-login/login/login.component';
-import { MatDialog } from '@angular/material';
 import { UtilHelper } from 'src/app/services/util';
+import { MatDialog } from '@angular/material/dialog';
+
 declare var $: any;
 declare var jQuery: any;
 
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {
     this.loginHide = UtilHelper.loginHide;
+    console.log(this.loginHide);
   }
 
   ngOnInit(): void {

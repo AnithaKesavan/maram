@@ -29,5 +29,8 @@ const routes: Routes = [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],
+  providers: [
+    
+  ]
 })
 export class BlogModule { }

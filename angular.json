@@ -26,6 +26,8 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/themify-icons.css",
               "src/assets/css/elegant.css",
@@ -36,7 +38,7 @@
               "src/assets/css/slick.css",
               "src/assets/css/slick-theme.css",
               "src/assets/css/helper.css",
-              "src/styles.css",
+              "src/styles.scss",
               "src/assets/css/responsive.css",
               "src/assets/scss/core/_cards.scss"
             ],
@@ -108,7 +110,9 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css",
+              "src/styles.scss",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "src/assets/scss/core/_cards.scss"
             ],
             "scripts": [],
@@ -160,5 +164,8 @@
       }
     }
   },
-  "defaultProject": "maram"
+  "defaultProject": "maram",
+  "cli": {
+    "analytics": "e7932616-20dd-4def-9f97-0b014c67830a"
+  }
 }

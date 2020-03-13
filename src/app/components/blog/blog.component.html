@@ -1,14 +1,17 @@
-<owl-carousel-o [options]="customOptions">
-    <ng-template carouselSlide>Slide 1</ng-template>  
-    <ng-template carouselSlide>Slide 2</ng-template>  
-    <ng-template carouselSlide>Slide 3</ng-template>  
-    <ng-template carouselSlide>Slide 4</ng-template>  
-    <ng-template carouselSlide>Slide 5</ng-template>  
-    <ng-template carouselSlide>Slide 6</ng-template>  
-    <ng-template carouselSlide>Slide 7</ng-template>  
-    <ng-template carouselSlide>Slide 8</ng-template>  
-    <ng-template carouselSlide>Slide 9</ng-template>  
-    <ng-template carouselSlide>Slide 23</ng-template>  
-    <ng-template carouselSlide>Slide 33</ng-template>  
-    <ng-template carouselSlide>Slide 34</ng-template>  
+<div class="container-fluid">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let item of slides; let i = index">
+      <div class="card col-md-11">
+        <mat-card>
+          <div>
+            <img [src]="item.bfile_path" alt="" class="fill" />
+          </div>
+          <mat-card-content>
+            <p>{{item.title}}</p>
+            <a href="#" color="primary" class="waves-light" hidden>Read more</a>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
   </owl-carousel-o>
+</div>

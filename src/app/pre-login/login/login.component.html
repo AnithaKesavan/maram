@@ -22,10 +22,10 @@
             <mat-form-field style="width: 100%;">
               <mat-label>Email address</mat-label>
               <input matInput formControlName="email" placeholder="Enter your regsitered e-Mail Id"
-                [ngClass]="{'form-error':LoginForm.controls.email.invalid && (submitted || LoginForm.controls.email.touched)}">
+                [ngClass]="{'form-error':LoginForm.controls.email.invalid && (LoginForm.controls.email.touched)}">
               <mat-icon matSuffix class="secondary-text">mail</mat-icon>
               <mat-error
-                *ngIf="LoginForm.controls['email'].errors?.required && (submitted || LoginForm.controls['email'].touched)">
+                *ngIf="LoginForm.controls['email'].errors?.required && (LoginForm.controls['email'].touched)">
                 This field is Required</mat-error>
             </mat-form-field>
           </div>
@@ -35,12 +35,12 @@
               <mat-label>Password</mat-label>
               <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
                 (keydown.enter)="validateAndLogin()" placeholder="Enter Your Password"
-                [ngClass]="{'form-error':LoginForm.controls.password.invalid && (submitted || LoginForm.controls.password.touched)}">
+                [ngClass]="{'form-error':LoginForm.controls.password.invalid && (LoginForm.controls.password.touched)}">
 
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 
               <mat-error
-                *ngIf="LoginForm.controls['password'].errors?.required && (submitted || LoginForm.controls['password'].touched)">
+                *ngIf="LoginForm.controls['password'].errors?.required && (LoginForm.controls['password'].touched)">
                 This field is Required</mat-error>
             </mat-form-field>
           </div>

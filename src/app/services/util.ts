@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBarConfig, MatSnackBar } from '@angular/material';
+import { MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class UtilHelper {
@@ -25,7 +25,7 @@ export class UtilHelper {
         return JSON.parse(localStorage.getItem(key));
     }
 
-    public static loginHide: boolean = false;
+    public static loginHide: boolean;
 
     open(message: string) {
         let config = new MatSnackBarConfig();

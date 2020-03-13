@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 import { AuthServiceService } from 'src/app/guard/auth.service';
