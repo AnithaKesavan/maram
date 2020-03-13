@@ -21,12 +21,13 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private router: Router) {
-    this.subscription = router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        browserRefresh = !router.navigated;
-        console.log(event);
-      }
-    });
+    debugger;
+    let value = UtilHelper.getLocalStorageItemByKey('username');
+    if (value === null) {
+      UtilHelper.loginHide = true;
+    } else {
+      UtilHelper.loginHide = false;
+    }
   }
 
   ngOnInit(): void {

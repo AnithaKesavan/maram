@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let item of galleryArray; let i = index">
+        <div class="card col-md-11">
+          <mat-card>
+            <div>
+              <img [src]="item.gfile_path" alt="" class="fill" />
+            </div>
+            <mat-card-content>
+              <p>{{item.title}}</p>  
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>

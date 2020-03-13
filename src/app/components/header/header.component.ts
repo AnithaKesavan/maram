@@ -111,7 +111,10 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    UtilHelper.loginHide = false;
+    UtilHelper.loginHide = true;
+    localStorage.removeItem('username');
+    window.location.reload();
   }
+
 
 }

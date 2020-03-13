@@ -15,11 +15,11 @@
         </div>
         <div class="col-sm-3">
           <div class="social-icons pull-right">
+            <a (click)="openLogin()" class="logincss" *ngIf="loginHide">Login</a>
+            <a (click)="logout()" class="logincss" *ngIf="!loginHide">Logout</a>
+
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
-           
-            <a (click)="openLogin()" class="logincss" *ngIf="!loginHide">Login</a> 
-            <a (click)="logout()" class="logincss" *ngIf="loginHide">Logout</a> 
             <!--<a href="#"><i class="fa fa-instagram"></i></a>
             <a href="#"><i class="fa fa-youtube"></i></a>
             <a href="#"><i class="fa fa-skype"></i></a>-->
@@ -65,7 +65,7 @@
                     <li><a href="service-3.html">Service 3</a></li>
                   </ul>-->
                 </li>
-                <li><a routerLink="/gallery">Gallery</a>
+                <li><a routerLink="/#/gallery">Gallery</a>
                   <!--<ul class="submenu">
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="gallery-details.html">Gallery Details</a></li>

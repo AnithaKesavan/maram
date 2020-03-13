@@ -17,6 +17,7 @@ import { LoginService } from '../pre-login/login/login.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BlogService } from '../components/blog/blog.service';
 import { RegisterService } from '../pre-login/register/register.service';
+import { GalleryService } from '../components/gallery/gallery.service';
 
 @NgModule({
 
@@ -62,7 +63,8 @@ import { RegisterService } from '../pre-login/register/register.service';
 		UtilHelper,
 		LoginService,
 		BlogService,
-		RegisterService
+		RegisterService,
+		GalleryService
 	]
 
 })

@@ -58,7 +58,8 @@ export class LoginComponent {
           UtilHelper.setLocalStorageItemByKey('jwt', this.LoginUserResponseData.jwt);
           this.utilHelp.open('Login Successfully');
           this.authService.login();
-          // window.location.href = "/#/about";
+
+          window.location.reload();
           this.spinner.hide();
           this.router.navigateByUrl('/about');
           this.dialogRef.close();
