@@ -35,7 +35,7 @@ export class Utility {
      * @param headers
      * @returns {Observable<>}
      */
-    public get(url: string, params: any = {}, headers: any = {}, responseType?: string): Observable<any> {
+    public get(url: string, params: any = {}, headers: any = {}, responseType?: string): Observable<any> { 
         this.loading = true;
         this.loadingChange.next(this.loading);
         this.isQueryStringRequest = (url.indexOf('?') !== -1) ? true : false;

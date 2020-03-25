@@ -20,8 +20,7 @@ export class AppComponent implements OnInit {
     UtilHelper.loginHide = true;
   }
 
-  constructor(private router: Router) {
-    debugger;
+  constructor(private router: Router) { 
     let value = UtilHelper.getLocalStorageItemByKey('username');
     if (value === null) {
       UtilHelper.loginHide = true;

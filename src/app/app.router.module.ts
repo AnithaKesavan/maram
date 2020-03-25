@@ -6,7 +6,8 @@ const routes: Routes = [
     { path: 'contact', loadChildren: () => import('./components/contact/contact.module').then((m) => m.ContactModule) },
     { path: 'about', loadChildren: () => import('./components/about/about.module').then((m) => m.AboutModule) },
     { path: 'blog', loadChildren: () => import('./components/blog/blog.module').then((m) => m.BlogModule) },
-    { path: 'gallery', loadChildren: () => import('./components/gallery/gallery.module').then((m) => m.GalleryModule) }
+    { path: 'gallery', loadChildren: () => import('./components/gallery/gallery.module').then((m) => m.GalleryModule) },
+    { path: 'blogdetails', loadChildren: () => import('./components/blogdetails/blogdetails.module').then((m) => m.BlogdetailsModule) }
 ];
 
 @NgModule({

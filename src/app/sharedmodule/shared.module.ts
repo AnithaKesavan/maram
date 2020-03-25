@@ -18,6 +18,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BlogService } from '../components/blog/blog.service';
 import { RegisterService } from '../pre-login/register/register.service';
 import { GalleryService } from '../components/gallery/gallery.service';
+import { BlogdetailsService } from '../components/blogdetails/blogdetails.service';
 
 @NgModule({
 
@@ -64,7 +65,8 @@ import { GalleryService } from '../components/gallery/gallery.service';
 		LoginService,
 		BlogService,
 		RegisterService,
-		GalleryService
+		GalleryService,
+		BlogdetailsService
 	]
 
 })

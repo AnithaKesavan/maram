@@ -2,7 +2,7 @@
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide *ngFor="let item of slides; let i = index">
       <div class="card col-md-11">
-        <mat-card>
+        <mat-card class="cardpointer" (click)="movetoparticularitem(item)">
           <div>
             <img [src]="item.bfile_path" alt="" class="fill" />
           </div>
