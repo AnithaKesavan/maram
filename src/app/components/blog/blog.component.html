@@ -3,13 +3,18 @@
     <ng-template carouselSlide *ngFor="let item of slides; let i = index">
       <div class="card col-md-11">
         <mat-card class="cardpointer" (click)="movetoparticularitem(item)">
-          <div>
-            <img [src]="item.bfile_path" alt="" class="fill" />
-          </div>
+          <mat-card-header>
+            <mat-card-title>{{item.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="item.bfile_path" alt=""  class="fill" />
           <mat-card-content>
-            <p>{{item.title}}</p>
-            <a href="#" color="primary" class="waves-light" hidden>Read more</a>
+            <p>
+              {{item.description}}
+            </p>
           </mat-card-content>
+          <mat-card-actions>
+            <a href="#" color="primary" class="waves-light" hidden>Read more</a>
+          </mat-card-actions>
         </mat-card>
       </div>
     </ng-template>

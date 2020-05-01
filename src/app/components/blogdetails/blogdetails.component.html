@@ -1,11 +1,29 @@
 <div class="pb-4">
     <div class="card">
         <div>
-            <img [src]="particularblogdata.img" alt="" class="fill" />
+            <img id="imgZoom" class="fill" [src]="blogData.bfile_path">
         </div>
         <mat-card-content>
-            <p>{{particularblogdata.title}}</p>
+            <p>{{blogData.title}}</p>
+            <p>{{blogData.description}}</p>
             <a href="#" color="primary" class="waves-light" hidden>Read more</a>
         </mat-card-content>
     </div>
 </div>
+
+<!-- 
+
+<div class="pb-4">
+    <div class="card">
+        <div> 
+            <img id="imgZoom" (mouseover)="zoomIn(event)" (mousedown)="zoomOut()" [src]="blogData.bfile_path">
+
+            <div id="overlay"></div>
+        </div>
+        <mat-card-content>
+            <p>{{blogData.title}}</p>
+            <p>{{blogData.description}}</p>
+            <a href="#" color="primary" class="waves-light" hidden>Read more</a>
+        </mat-card-content>
+    </div>
+</div> -->

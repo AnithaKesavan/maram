@@ -1,11 +1,11 @@
- 
-.card { 
+.card {
   border: 1px solid #ddd;
   padding: 20px;
-  text-align: center; 
+  text-align: center;
   box-shadow: 0px 36px 76px 0px rgba(0, 0, 0, 0.17) !important;
   width: 50%;
   margin: 0 auto;
+  height: 61vh;
 }
 
 .card:hover {
@@ -14,21 +14,32 @@
 
 .fill {
   width: 65%;
-  height: 55vh;
+  height: 53vh;
 }
 
 /* [1] The container */
 .img-hover-zoom {
-    height: 300px; /* [1.1] Set it as per your need */
-    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
-  }
+  height: 300px; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+ 
+
+#overlay{
+  border:1px solid black;
+  width:350px;
+  height:200px;
+  display:inline-block;
+  background-image:url('../../../assets/images/noimage.jpg');
+  background-repeat:no-repeat;
   
-  /* [2] Transition property for smooth transformation of images */
-  .img-hover-zoom img {
-    transition: transform .5s ease;
-  }
-  
-  /* [3] Finally, transforming the image when container gets hovered */
-  .img-hover-zoom:hover img {
-    transform: scale(1.5);
-  }
+}

@@ -11,14 +11,14 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class GalleryComponent implements OnInit {
 
-  // slides: any[] = new Array();
+  slides: any[] = new Array();
   galleryArray: any[] = array;
 
   constructor(public galleryService: GalleryService,
     public utilHelp: UtilHelper) { }
 
   ngOnInit() {
-    // this.getallblog();
+    this.getallgallery();
   }
 
   getallgallery() {
@@ -28,6 +28,14 @@ export class GalleryComponent implements OnInit {
         return;
       }
       this.galleryArray = response.message;
+
+      this.slides = response.message;
+
+      this.slides.forEach(element => {
+        let imgline = element.gfile_path.indexOf('\assets');
+        element.gfile_path = element.gfile_path.slice(imgline - 1, element.bfile_path.length);
+      });
+
     }, (err: HttpErrorResponse) => {
       console.log("No Services");
       this.utilHelp.open('No Services');

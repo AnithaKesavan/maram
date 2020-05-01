@@ -1,16 +1,17 @@
 <div class="container-fluid">
-    <owl-carousel-o [options]="customOptions">
-      <ng-template carouselSlide *ngFor="let item of galleryArray; let i = index">
-        <div class="card col-md-11">
-          <mat-card>
-            <div>
-              <img [src]="item.gfile_path" alt="" class="fill" />
-            </div>
-            <mat-card-content>
-              <p>{{item.title}}</p>  
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </ng-template>
-    </owl-carousel-o>
-  </div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let item of slides; let i = index">
+      <div class="card col-md-11">
+        <mat-card class="cardpointer">
+          <mat-card-header>
+            <mat-card-title>{{item.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="item.gfile_path" alt="" class="fill" />
+          <mat-card-actions>
+            <a href="#" color="primary" class="waves-light" hidden>Read more</a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+</div>

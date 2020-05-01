@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogdetailsService } from './blogdetails.service';
 import { UtilHelper } from 'src/app/services/util';
@@ -16,23 +16,31 @@ export class BlogdetailsComponent implements OnInit {
   particularblogdata: any;
 
   constructor(public _router: Router, public blogService: BlogdetailsService, public utilHelp: UtilHelper) {
-    
-    this.particularblogdata = {
-      'img': 'assets/images/noimage.jpg',
-      'title': 'No Data Found'
-    } 
-    if (this._router.getCurrentNavigation() === null) {
 
+
+    if (this._router.getCurrentNavigation() === null) {
+      this.blogData = {
+        'bfile_path': 'assets/images/noimage.jpg',
+        'title': 'No Data Found'
+      }
+      
     } else {
       if (this._router.getCurrentNavigation().extras.replaceUrl === true) {
-
+        this.blogData = {
+          'bfile_path': 'assets/images/noimage.jpg',
+          'title': 'No Data Found'
+        } 
       } else {
         this.blogData = this._router.getCurrentNavigation().extras.state.data;
-        console.log(this.blogData);
+        console.log(this.blogData); 
         this.getallblog();
       }
     }
 
+  }
+
+  ngOnInit(): void {
+    document.getElementById("overlay").style.backgroundImage = 'assets/images/noimage.jpg'
   }
 
 
@@ -42,7 +50,7 @@ export class BlogdetailsComponent implements OnInit {
         this.utilHelp.open('Error');
         return;
       }
-      let data = response.message; 
+      let data = response.message;
       let imgline = data.bfile_path.indexOf('\assets');
       imgline = data.bfile_path.slice(imgline - 1, data.bfile_path.length);
 
@@ -57,7 +65,35 @@ export class BlogdetailsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+ 
+
+  zoomOut() {
+    let element = document.getElementById("overlay");
+    element.style.display = "none";
   }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event) {
+    console.log(event);
+    let element = document.getElementById("overlay");
+    element.style.display = "inline-block";
+    let img = document.getElementById("imgZoom");
+    element.style.backgroundImage = this.blogData.bfile_path;
+    let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+    let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+    element.style.backgroundPosition = (-posX * 2) + "px " + (-posY * 4) + "px";
+  }
+
+  zoomIn(event) {
+    let element = document.getElementById("overlay");
+    element.style.display = "inline-block";
+    let img = document.getElementById("imgZoom");
+    element.style.backgroundImage = this.blogData.bfile_path;
+    let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+    let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+    element.style.backgroundPosition = (-posX * 2) + "px " + (-posY * 4) + "px";
+
+  }
+
 
 }
