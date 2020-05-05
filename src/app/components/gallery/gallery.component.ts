@@ -33,7 +33,7 @@ export class GalleryComponent implements OnInit {
 
       this.slides.forEach(element => {
         let imgline = element.gfile_path.indexOf('\assets');
-        element.gfile_path = element.gfile_path.slice(imgline - 1, element.bfile_path.length);
+        element.gfile_path = element.gfile_path.slice(imgline - 1, element.gfile_path.length);
       });
 
     }, (err: HttpErrorResponse) => {
