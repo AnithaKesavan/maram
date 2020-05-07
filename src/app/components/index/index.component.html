@@ -1,4 +1,5 @@
-<!--banner-area start--><!--
+<!--banner-area start-->
+<!--
 <div class="banner-area bg-1 overlay">
   <div class="container">
     <div class="row align-items-center height-800 pb-111">
@@ -24,8 +25,9 @@
         <div class="row height-800 align-items-center">
           <div class="col-lg-9 offset-lg-3 col-sm-12">
             <div class="banner-text style-3 text-black text-left mt-minus-58">
-              <h2>Succulent <br/> Minimal Collections</h2>
-              <p class="mt-35">It is a long established fact that a reader will be distracted by the readable <br/> content of a page when looking at its layout. The point of using Lorem Ipsum</p>
+              <h2>Succulent <br /> Minimal Collections</h2>
+              <p class="mt-35">It is a long established fact that a reader will be distracted by the readable <br />
+                content of a page when looking at its layout. The point of using Lorem Ipsum</p>
               <a href="#" class="btn-common mt-40">Shop Now</a>
             </div>
           </div>
@@ -35,8 +37,9 @@
         <div class="row height-800 align-items-center">
           <div class="col-sm-12">
             <div class="banner-text style-3 text-white text-center mt-minus-58">
-              <h2>Your Home <br/> With a Beautiful Garden</h2>
-              <p class="mt-35">It is a long established fact that a reader will be distracted by the readable <br/> content of a page when looking at its layout. The point of using Lorem Ipsum</p>
+              <h2>Your Home <br /> With a Beautiful Garden</h2>
+              <p class="mt-35">It is a long established fact that a reader will be distracted by the readable <br />
+                content of a page when looking at its layout. The point of using Lorem Ipsum</p>
               <a href="#" class="btn-common mt-40">Shop Now</a>
             </div>
           </div>
@@ -100,42 +103,48 @@
         <div class="sin-service style-2">
           <i class="ti-clipboard"></i>
           <h3>License & Insurance</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="sin-service style-2">
           <i class="ti-truck"></i>
           <h3>License & Insurance</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="sin-service style-2">
           <i class="ti-cup"></i>
           <h3>License & Insurance</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="sin-service style-2">
           <i class="ti-comments"></i>
           <h3>License & Insurance</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="sin-service style-2">
           <i class="ti-calendar"></i>
           <h3>License & Insurance</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="sin-service style-2">
           <i class="ti-thumb-up"></i>
           <h3>License & Insurance</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
         </div>
       </div>
     </div>
@@ -143,7 +152,8 @@
 </div>
 <!--about-area end-->
 
-<!--project-area start--><!--
+<!--project-area start-->
+<!--
 <div class="project-area mt-40 sm-mt-minus-10">
   <div class="container-fluid">
     <div class="row">
@@ -203,7 +213,8 @@
 </div>-->
 <!--project-area end-->
 
-<!--contact-form area--><!--
+<!--contact-form area-->
+<!--
 	<div class="contact-area bg-1 mt-83 sm-mt-40">
 		<div class="container">
 			<div class="row">
@@ -282,15 +293,34 @@
         </div>
       </div>
     </div>
-    <div class="row mt-63 sm-mt-40">
-      <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="row mt-3 sm-mt-40">
+
+      <div class="container">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let item of slides; let i = index">
+            <div class="card col-md-11">
+              <mat-card class="cardpointer" (click)="movetoparticularitem(item)">
+                <img mat-card-image [src]="item.bfile_path" alt="" class="fill" />
+                <div class="blog-desc">
+                  <h3><a href="#">{{item.title}}</a></h3>
+                  <p>{{item.description}}</p>
+                  <a href="#/blogdetails" class="readmore">Read More</a>
+                </div>
+              </mat-card>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+
+      <!-- <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="single-blog">
           <div class="blog-thumb">
             <a href="#"><img src="assets/images/blog/12.jpg" alt="blog-image"></a>
           </div>
           <div class="blog-desc">
             <h3><a href="#">Reason Behind Garden Design!</a></h3>
-            <p>One of the most important parts of any healthy lifestyle, though, is a willingness to learn from those who’ve already been around for a bit.</p>
+            <p>One of the most important parts of any healthy lifestyle, though, is a willingness to learn from those
+              who’ve already been around for a bit.</p>
             <a href="#" class="readmore">Read More</a>
           </div>
         </div>
@@ -302,7 +332,8 @@
           </div>
           <div class="blog-desc">
             <h3><a href="#">Reason Behind Garden Design!</a></h3>
-            <p>One of the most important parts of any healthy lifestyle, though, is a willingness to learn from those who’ve already been around for a bit.</p>
+            <p>One of the most important parts of any healthy lifestyle, though, is a willingness to learn from those
+              who’ve already been around for a bit.</p>
             <a href="#" class="readmore">Read More</a>
           </div>
         </div>
@@ -314,11 +345,12 @@
           </div>
           <div class="blog-desc">
             <h3><a href="#">Reason Behind Garden Design!</a></h3>
-            <p>One of the most important parts of any healthy lifestyle, though, is a willingness to learn from those who’ve already been around for a bit.</p>
+            <p>One of the most important parts of any healthy lifestyle, though, is a willingness to learn from those
+              who’ve already been around for a bit.</p>
             <a href="#" class="readmore">Read More</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -338,12 +370,18 @@
       <div class="col-lg-10 offset-lg-1 col-md-12">
         <div class="testimonial-items carousel-one arrow-none">
           <div class="single-testimonial">
-            <p>I wanted to mention that these days, when the opposite of good customer and tech support <br/> tends to be the norm, it’s always great having a team like you guys at The Garden! So, be sure <br/> that I’ll always spread the word about how good your product is and the extraordinary level of <br/> support that you provide any time there is any need for it.</p>
+            <p>I wanted to mention that these days, when the opposite of good customer and tech support <br /> tends to
+              be the norm, it’s always great having a team like you guys at The Garden! So, be sure <br /> that I’ll
+              always spread the word about how good your product is and the extraordinary level of <br /> support that
+              you provide any time there is any need for it.</p>
             <h4>Karthick</h4>
             <small>Erode</small>
           </div>
           <div class="single-testimonial">
-            <p>I wanted to mention that these days, when the opposite of good customer and tech support <br/> tends to be the norm, it’s always great having a team like you guys at The Garden! So, be sure <br/> that I’ll always spread the word about how good your product is and the extraordinary level of <br/> support that you provide any time there is any need for it.</p>
+            <p>I wanted to mention that these days, when the opposite of good customer and tech support <br /> tends to
+              be the norm, it’s always great having a team like you guys at The Garden! So, be sure <br /> that I’ll
+              always spread the word about how good your product is and the extraordinary level of <br /> support that
+              you provide any time there is any need for it.</p>
             <h4>vijayakumar</h4>
             <small>Coimbatore</small>
           </div>

@@ -31,7 +31,7 @@ export class BlogComponent implements OnInit {
         return;
       }
       this.slides = response.message;
- 
+
       this.slides.forEach(element => {
         let imgline = element.bfile_path.indexOf('\assets');
         element.bfile_path = element.bfile_path.slice(imgline - 1, element.bfile_path.length);

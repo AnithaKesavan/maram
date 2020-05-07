@@ -1,15 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { BlogService } from '../blog/blog.service';
+import { Router } from '@angular/router';
+import { UtilHelper } from 'src/app/services/util';
+import { HttpErrorResponse } from '@angular/common/http';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 declare var $: any;
 declare var jQuery: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit{
+export class IndexComponent implements OnInit {
+
+  slides: any[] = new Array();
+  demo: string;
+  img: any = '';
+
+  constructor(public DomSanitizer: DomSanitizer, public blogService: BlogService,
+    public utilHelp: UtilHelper, public router: Router) { }
+
 
   ngOnInit(): void {
+    this.getallblog();
     /*--------------------------
      counterUp
     ---------------------------- */
@@ -37,7 +52,7 @@ export class IndexComponent implements OnInit{
     ---------------------------- */
     $(".slider-items").slick({
       dots: true,
-      list:false,
+      list: false,
       infinite: true,
       speed: 700,
       slidesToShow: 1,
@@ -48,7 +63,7 @@ export class IndexComponent implements OnInit{
     ---------------------------- */
     $(".carousel-one").slick({
       dots: true,
-      list:false,
+      list: false,
       infinite: true,
       speed: 300,
       slidesToShow: 1,
@@ -57,7 +72,7 @@ export class IndexComponent implements OnInit{
 
     $(".carousel-two").slick({
       dots: true,
-      list:false,
+      list: false,
       infinite: true,
       speed: 300,
       slidesToShow: 2,
@@ -78,21 +93,21 @@ export class IndexComponent implements OnInit{
     /*----------------------------
      price-slider
     ------------------------------ */
-    $( "#slider-range" ).slider({
+    $("#slider-range").slider({
       range: true,
       min: 40,
       max: 600,
-      values: [ 60, 570 ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      values: [60, 570],
+      slide: function (event, ui) {
+        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
       }
     });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+      " - $" + $("#slider-range").slider("values", 1));
     /*----------------------------
      cart-plus-minus-button
     ------------------------------ */
-    $(".qtybutton").on("click", function() {
+    $(".qtybutton").on("click", function () {
       var $button = $(this);
       var oldValue = $button.parent().find("input").val();
 
@@ -116,7 +131,7 @@ export class IndexComponent implements OnInit{
       asNavFor: '.slider-nav',
       arrows: true,
       vertical: true,
-      swipe:false
+      swipe: false
     });
 
     $('.slider-nav').slick({
@@ -125,20 +140,62 @@ export class IndexComponent implements OnInit{
       dots: false,
       focusOnSelect: true,
       vertical: true,
-      swipe:false
+      swipe: false
 
     });
     /*---------------------
      countdown
     --------------------- */
-    $('[data-countdown]').each(function() {
+    $('[data-countdown]').each(function () {
 
       var $this = $(this), finalDate = $(this).data('countdown');
 
-      $this.countdown(finalDate, function(event) {
+      $this.countdown(finalDate, function (event) {
         $this.html(event.strftime('<span class="cdown days"><span class="time-count">%-D</span><p>Days</p></span> <span class="cdown hour"><span class="time-count">%-H</span> <p>Hour</p></span> <span class="cdown minutes"><span class="time-count">%M</span> <p>Min</p></span> <span class="cdown second"> <span><span class="time-count">%S</span> <p>Sec</p></span>'));
       });
 
     });
   }
+  
+  customOptions: OwlOptions = {
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 3
+      }
+    },
+    nav: true
+  }
+
+  getallblog() {
+    this.blogService.get_all_blog().subscribe((response) => {
+      if (response.status === 0) {
+        this.utilHelp.open('Error');
+        return;
+      }
+      this.slides = response.message;
+
+      this.slides.forEach(element => {
+        let imgline = element.bfile_path.indexOf('\assets');
+        element.bfile_path = element.bfile_path.slice(imgline - 1, element.bfile_path.length);
+      });
+
+    }, (err: HttpErrorResponse) => {
+      console.log("No Services");
+      this.utilHelp.open('No Services');
+    });
+  }
+
+  movetoparticularitem(item) {
+    this.router.navigateByUrl('blogdetails', { state: { data: item } });
+  }
+
 }

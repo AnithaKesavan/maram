@@ -23,16 +23,16 @@ export class BlogdetailsComponent implements OnInit {
         'bfile_path': 'assets/images/noimage.jpg',
         'title': 'No Data Found'
       }
-      
+
     } else {
       if (this._router.getCurrentNavigation().extras.replaceUrl === true) {
         this.blogData = {
           'bfile_path': 'assets/images/noimage.jpg',
           'title': 'No Data Found'
-        } 
+        }
       } else {
         this.blogData = this._router.getCurrentNavigation().extras.state.data;
-        console.log(this.blogData); 
+        console.log(this.blogData);
         this.getallblog();
       }
     }
@@ -65,35 +65,35 @@ export class BlogdetailsComponent implements OnInit {
     });
   }
 
- 
+
 
   zoomOut() {
     let element = document.getElementById("overlay");
     element.style.display = "none";
   }
 
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(event) {
-    console.log(event);
-    let element = document.getElementById("overlay");
-    element.style.display = "inline-block";
-    let img = document.getElementById("imgZoom");
-    element.style.backgroundImage = this.blogData.bfile_path;
-    let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
-    let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
-    element.style.backgroundPosition = (-posX * 2) + "px " + (-posY * 4) + "px";
-  }
+  // @HostListener('document:mousemove', ['$event'])
+  // onMouseMove(event) {
+  //   console.log(event);
+  //   let element = document.getElementById("overlay");
+  //   element.style.display = "inline-block";
+  //   let img = document.getElementById("imgZoom");
+  //   element.style.backgroundImage = this.blogData.bfile_path;
+  //   let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+  //   let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+  //   element.style.backgroundPosition = (-posX * 2) + "px " + (-posY * 4) + "px";
+  // }
 
-  zoomIn(event) {
-    let element = document.getElementById("overlay");
-    element.style.display = "inline-block";
-    let img = document.getElementById("imgZoom");
-    element.style.backgroundImage = this.blogData.bfile_path;
-    let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
-    let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
-    element.style.backgroundPosition = (-posX * 2) + "px " + (-posY * 4) + "px";
+  // zoomIn(event) {
+  //   let element = document.getElementById("overlay");
+  //   element.style.display = "inline-block";
+  //   let img = document.getElementById("imgZoom");
+  //   element.style.backgroundImage = this.blogData.bfile_path;
+  //   let posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+  //   let posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+  //   element.style.backgroundPosition = (-posX * 2) + "px " + (-posY * 4) + "px";
 
-  }
+  // }
 
 
 }
